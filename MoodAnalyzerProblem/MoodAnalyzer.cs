@@ -11,12 +11,20 @@ namespace MoodAnalyzerProblem
         string message;
         public string AnalyseMood()
         {
-            if (message.ToLower().Contains("sad"))
+            try
+            {
+                if (message.ToLower().Contains("sad"))
 
-                return "Sad";
-            else
+                    return "sad";
+                else
 
-                return "Happy";
+                    return "happy";
+            }
+
+            catch(Exception e)
+            {
+                return "happy";
+            }
 
 
         }
