@@ -2,6 +2,6 @@
 using MoodAnalyzerProblem;
 
 MoodAnalyzer moodAnalyzer = new MoodAnalyzer();
-string result = moodAnalyzer.AnalyseMood("I am in  sad mood");
+string result = moodAnalyzer.AnalyseMood();
 Console.WriteLine(result);
 

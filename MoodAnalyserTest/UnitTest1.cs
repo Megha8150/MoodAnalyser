@@ -8,18 +8,18 @@ namespace MoodAnalyserTest
         [TestMethod]
         public void ShouldReturnsadMood()
         {
-           MoodAnalyzer moodAnalyzer = new MoodAnalyzer();
-            string result = moodAnalyzer.AnalyseMood("I am in Sad mood");
-            Assert.AreEqual("sad",result);
+           MoodAnalyzer moodAnalyzer = new MoodAnalyzer("I am in Sad Mood");
+            string result = moodAnalyzer.AnalyseMood();
+            Assert.AreEqual("Sad",result);
 
         }
 
         [TestMethod]
         public void ShouldReturnHappyMood()
         {
-            MoodAnalyzer moodAnalyzer = new MoodAnalyzer();
-            string result = moodAnalyzer.AnalyseMood("I am in any mood");
-            Assert.AreEqual("happy", result);
+            MoodAnalyzer moodAnalyzer = new MoodAnalyzer("I am in any mood");
+            string result = moodAnalyzer.AnalyseMood();
+            Assert.AreEqual("Happy", result);
 
         }
     }
