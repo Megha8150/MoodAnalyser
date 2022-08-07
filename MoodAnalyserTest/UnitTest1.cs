@@ -8,9 +8,9 @@ namespace MoodAnalyserTest
         [TestMethod]
         public void ShouldReturnsadMood()
         {
-           MoodAnalyzer moodAnalyzer = new MoodAnalyzer("I am in sad Mood");
+            MoodAnalyzer moodAnalyzer = new MoodAnalyzer("I am in sad Mood");
             string result = moodAnalyzer.AnalyseMood();
-            Assert.AreEqual("sad",result);
+            Assert.AreEqual("sad", result);
 
         }
 
@@ -24,12 +24,19 @@ namespace MoodAnalyserTest
         }
 
         [TestMethod]
-        public void ShouldReturnHappyMoodWhenMessageIsNull()
+        public void GivenNull_AnalyseMood_ReturnHappyMood()
         {
+            try
+            {
 
-            MoodAnalyzer moodAnalyzer = new MoodAnalyzer();
-            string result = moodAnalyzer.AnalyseMood();
-            Assert.AreEqual("happy", result);
+                MoodAnalyzer mood = new MoodAnalyzer("");
+
+                string acualResult = mood.AnalyseMood();
+            }
+            catch (MoodAnalyzerCustomException exc)
+            {
+                Assert.AreEqual("Mood can not be Empty", exc.Message);
+            }
         }
     }
 }

@@ -21,9 +21,10 @@ namespace MoodAnalyzerProblem
                     return "happy";
             }
 
-            catch(Exception e)
+            catch(MoodAnalyzerCustomException e)
             {
-                return "happy";
+                throw new MoodAnalyzerCustomException(MoodAnalyzerCustomException.ExceptionType.NULL_MESSAGE, "Mood can not be Empty");
+
             }
 
 
