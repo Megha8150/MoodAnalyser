@@ -5,15 +5,18 @@ namespace MoodAnalyserTest
     [TestClass]
     public class UnitTest1
     {
+
         [TestMethod]
         public void GivenMoodAnalyseClassName_ShouldReturnMoodAnalyseObject()
         {
-            string message = null;
-            object expected = new MoodAnalyse(message);
-            object obj = MoodAnalyserFactory.CreateMoodAnalyser("MoodAnalyserDemo.MoodAnalyser", "MoodAnalyser");
+            //Arrange
+            //string message ="";
+            string expected = "Constructor is not found";
+            //Act
+            string actual = (string)MoodAnalyserFactory.CreateMoodAnalyser("MoodAnalyserPbr.MoodAnalyser", "MoodAnalyse");
+            //Assert
             //expected.Equals(obj);
-            Assert.AreNotEqual(expected, obj);
+            Assert.AreEqual(expected, actual);
         }
-
     }
 }
