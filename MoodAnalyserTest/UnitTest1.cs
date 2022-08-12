@@ -7,8 +7,9 @@ namespace MoodAnalyserTest
     {
 
         [TestMethod]
-        public void GivenMoodAnalyseClassName_ShouldReturnMoodAnalyseObject()
+        public void GivenMoodAnalyseClassName_ShouldReturnMoodAnalyseObject_UsingParameterizedConstructor()
         {
+<<<<<<< HEAD
 <<<<<<< Updated upstream
             //Arrange
             //string message ="";
@@ -19,13 +20,20 @@ namespace MoodAnalyserTest
             //expected.Equals(obj);
             Assert.AreEqual(expected, actual);
 =======
+=======
+>>>>>>> fc049f5920488590aba1cc8c2eb01dd3aecad053
             object expected = new MoodAnalyse("HAPPY"); //2000
                                                         //MoodAnalyser obj = (MoodAnalyser)expected;
             object expected1 = expected;
             object obj = MoodAnalyserFactory.CreateMoodAnalyseUsingParameterizedConstructor("MoodAnalyserDemo.MoodAnalyser", "MoodAnalyser", "HAPPY");
+<<<<<<< HEAD
             expected.Equals(obj);
             //Assert.AreEqual(expected, expected1);
 >>>>>>> Stashed changes
+=======
+            // expected.Equals(obj);
+            Assert.AreEqual(expected, expected1);
+>>>>>>> fc049f5920488590aba1cc8c2eb01dd3aecad053
         }
     }
 }
