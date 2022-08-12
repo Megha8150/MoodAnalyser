@@ -6,14 +6,13 @@ using System.Threading.Tasks;
 
 namespace MoodAnalyzerProblem
 {
-    public class MoodAnalyser
+    public class MoodAnalyse
     {
         public string message;
-
-        //public MoodAnalyser(string message)
-        //{
-        //    this.message = message;
-        //}
+        public MoodAnalyse(string message)
+        {
+            this.message = message;
+        }
 
         public string analyseMood()
         {
@@ -38,5 +37,10 @@ namespace MoodAnalyzerProblem
                 return exception;
             }
 
+            //finally
+            //{
+            //    Console.WriteLine("This code will always execute irrespective of exception came or not!!!!");
+            //}
         }
     }
+}
