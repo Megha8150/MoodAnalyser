@@ -10,36 +10,27 @@ namespace MoodAnalyzerProblem
 {
     public class MoodAnalyserFactory
     {
-        public static object CreateMoodAnalyser(string className, string constructorName)
+        public static object CreateMoodAnalyseUsingParameterizedConstructor(string className, string constructorName, string message)
         {
-            string pattern = @"." + constructorName + "$";//.MoodAnalyser$
-            Match result = Regex.Match(className, pattern);
-            try
+            Type type = typeof(MoodAnalyse);
+            if (type.Name.Equals(className) || type.FullName.Equals(className))
             {
-                if (result.Success)
+                if (type.Name.Equals(constructorName))
                 {
-                    try
-                    {
-                        Assembly executing = Assembly.GetExecutingAssembly();
-                        Type moodAnalyseType = executing.GetType(className);
-                        return Activator.CreateInstance(moodAnalyseType);
-                    }
-                    catch (ArgumentNullException)
-                    {
-                        Console.WriteLine("Your input is not valid");
-                        throw new MoodAnalyzerCustomException(MoodAnalyzerCustomException.ExceptionType.NO_SUCH_CLASS, "Class not found");
-                    }
+                    ConstructorInfo ctor = type.GetConstructor(new[] { typeof(string) });
+                    object instance = ctor.Invoke(new object[] { message });
+                    return instance;
                 }
                 else
                 {
                     throw new MoodAnalyzerCustomException(MoodAnalyzerCustomException.ExceptionType.NO_SUCH_METHOD, "Constructor is not found");
                 }
             }
-            catch (MoodAnalyzerCustomException ex)
+            else
             {
-                return ex.Message;
+                throw new MoodAnalyzerCustomException(MoodAnalyzerCustomException.ExceptionType.NO_SUCH_CLASS, "Class not found");
+
             }
-            return null;
         }
     }
 
