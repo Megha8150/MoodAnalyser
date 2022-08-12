@@ -6,38 +6,37 @@ using System.Threading.Tasks;
 
 namespace MoodAnalyzerProblem
 {
-    public class MoodAnalyzer
+    public class MoodAnalyser
     {
-        string message;
-        public string AnalyseMood()
+        public string message;
+
+        //public MoodAnalyser(string message)
+        //{
+        //    this.message = message;
+        //}
+
+        public string analyseMood()
         {
             try
-            {
-                if (message.ToLower().Contains("sad"))
+            {   //"null"==""
+                if (message == null)
 
-                    return "sad";
+                    throw new MoodAnalyzerCustomException(MoodAnalyzerCustomException.ExceptionType.NULL_MESSAGE, "Mood should not be Null");
+
+                else if (this.message.Equals(string.Empty))  // ""==null
+
+                    throw new MoodAnalyzerCustomException(MoodAnalyzerCustomException.ExceptionType.EMPTY_MESSAGE, "Mood should not be Empty");
+
+                else if (this.message.Contains("sad"))
+                    return "SAD";
                 else
-
-                    return "happy";
+                    return "HAPPY";
             }
-
-            catch(MoodAnalyzerCustomException e)
+            catch (MoodAnalyzerCustomException obj)
             {
-                throw new MoodAnalyzerCustomException(MoodAnalyzerCustomException.ExceptionType.NULL_MESSAGE, "Mood can not be Empty");
-
+                string exception = obj.Message;
+                return exception;
             }
-
-
-        }
-        public MoodAnalyzer(string message)
-        {
-            this.message = message;
-        }
-
-        public MoodAnalyzer()
-        {
 
         }
     }
-   
-}
